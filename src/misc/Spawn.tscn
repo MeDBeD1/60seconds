@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/misc/Spawn.gd" type="Script" id=1]
+
+[node name="Spawn" type="Position2D"]
+position = Vector2( -570, -3 )
+script = ExtResource( 1 )
+
+[node name="SpawnCD" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnCD" to="." method="_on_SpawnCD_timeout"]

@@ -1,0 +1,648 @@
+[gd_scene load_steps=77 format=2]
+
+[ext_resource path="res://sprites/characters/SkeletonAll.png" type="Texture" id=1]
+[ext_resource path="res://src/characters/EnemySkeleton.gd" type="Script" id=2]
+[ext_resource path="res://src/misc/Hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/misc/Hurtbox.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 29.0
+height = 62.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "AttackLeft"
+length = 0.8
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 39, 38, 37, 36, 35, 34, 33, 32 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 0.65 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -115, 4 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "AttackRight"
+length = 0.8
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 29, 30, 31 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 0.65 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 115, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "DeathLeft"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 6, 5, 4 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "DeathRight"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "HurtLeft"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 47, 46, 45, 44, 44 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "HurtRight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42, 43, 43 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "IdleLeft"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 13, 12 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "IdleRight"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=62]
+resource_name = "JustDeadLeft"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=63]
+resource_name = "JustDeadRight"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 115, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "SpawnLeft"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "SpawnRight"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "WalkLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 23, 22, 21, 20 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "WalkRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkeletonAll:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "AttackLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "AttackRight"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "AttackLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "AttackRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=31]
+blend_point_0/node = SubResource( 27 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 28 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 29 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 30 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=64]
+animation = "JustDeadLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=65]
+animation = "JustDeadLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=66]
+animation = "JustDeadRight"
+
+[sub_resource type="AnimationNodeAnimation" id=67]
+animation = "JustDeadRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=68]
+blend_point_0/node = SubResource( 64 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 65 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 66 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 67 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "DeathLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "DeathRight"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "DeathLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "AttackRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=36]
+blend_point_0/node = SubResource( 32 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 33 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 34 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 35 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "HurtLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "HurtRight"
+
+[sub_resource type="AnimationNodeAnimation" id=39]
+animation = "HurtLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=40]
+animation = "HurtRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=41]
+blend_point_0/node = SubResource( 37 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 38 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 39 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 40 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=19]
+blend_point_0/node = SubResource( 15 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 16 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 17 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 18 )
+blend_point_3/pos = Vector2( 0, 1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "SpawnLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "SpawnRight"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "SpawnLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "SpawnRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=24]
+blend_point_0/node = SubResource( 20 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 21 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 22 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 23 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "WalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "WalkLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=46]
+blend_point_0/node = SubResource( 42 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 43 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 44 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 45 )
+blend_point_3/pos = Vector2( 0, 1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=69]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=25]
+states/Attack/node = SubResource( 31 )
+states/Attack/position = Vector2( 931.239, 172.333 )
+states/DeadDead/node = SubResource( 68 )
+states/DeadDead/position = Vector2( 1336.67, -7.16644 )
+states/Death/node = SubResource( 36 )
+states/Death/position = Vector2( 1147.67, -6.58299 )
+states/Hurt/node = SubResource( 41 )
+states/Hurt/position = Vector2( 930.427, -5.33334 )
+states/Idle/node = SubResource( 19 )
+states/Idle/position = Vector2( 848.333, 81.8889 )
+states/Spawn/node = SubResource( 24 )
+states/Spawn/position = Vector2( 672.333, 81 )
+states/Walk/node = SubResource( 46 )
+states/Walk/position = Vector2( 1008.33, 81.6173 )
+transitions = [ "Spawn", "Idle", SubResource( 47 ), "Idle", "Walk", SubResource( 48 ), "Walk", "Idle", SubResource( 49 ), "Idle", "Attack", SubResource( 50 ), "Attack", "Idle", SubResource( 51 ), "Walk", "Attack", SubResource( 52 ), "Attack", "Walk", SubResource( 53 ), "Idle", "Hurt", SubResource( 54 ), "Hurt", "Idle", SubResource( 55 ), "Walk", "Hurt", SubResource( 56 ), "Hurt", "Walk", SubResource( 57 ), "Attack", "Hurt", SubResource( 58 ), "Hurt", "Attack", SubResource( 59 ), "Hurt", "Death", SubResource( 60 ), "Death", "DeadDead", SubResource( 69 ) ]
+start_node = "Spawn"
+graph_offset = Vector2( 417, -58 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=26]
+
+[sub_resource type="CapsuleShape2D" id=61]
+radius = 40.0
+height = 70.0
+
+[sub_resource type="CircleShape2D" id=70]
+radius = 1806.21
+
+[sub_resource type="CircleShape2D" id=71]
+radius = 60.0083
+
+[sub_resource type="CapsuleShape2D" id=72]
+radius = 64.0
+height = 244.0
+
+[node name="EnemySkeleton" type="KinematicBody2D"]
+position = Vector2( 504, 306 )
+collision_layer = 16
+script = ExtResource( 2 )
+
+[node name="SkeletonAll" type="Sprite" parent="."]
+scale = Vector2( 2.49833, 2.49833 )
+texture = ExtResource( 1 )
+hframes = 48
+
+[node name="SkeletonCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/AttackLeft = SubResource( 2 )
+anims/AttackRight = SubResource( 3 )
+anims/DeathLeft = SubResource( 4 )
+anims/DeathRight = SubResource( 5 )
+anims/HurtLeft = SubResource( 6 )
+anims/HurtRight = SubResource( 7 )
+anims/IdleLeft = SubResource( 8 )
+anims/IdleRight = SubResource( 9 )
+anims/JustDeadLeft = SubResource( 62 )
+anims/JustDeadRight = SubResource( 63 )
+anims/RESET = SubResource( 10 )
+anims/SpawnLeft = SubResource( 11 )
+anims/SpawnRight = SubResource( 12 )
+anims/WalkLeft = SubResource( 13 )
+anims/WalkRight = SubResource( 14 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 25 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 26 )
+parameters/Attack/blend_position = Vector2( 0, 0 )
+parameters/DeadDead/blend_position = Vector2( 0, 0 )
+parameters/Death/blend_position = Vector2( 0, 0 )
+parameters/Hurt/blend_position = Vector2( 0, 0 )
+parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/Spawn/blend_position = Vector2( 0, 0 )
+parameters/Walk/blend_position = Vector2( 0, 0 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 1.52588e-05, 4 )
+shape = SubResource( 61 )
+
+[node name="Despawn" type="Timer" parent="."]
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource( 70 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 3 )]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 115, 0 )
+shape = SubResource( 71 )
+disabled = true
+
+[node name="AttackRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
+rotation = 1.5708
+shape = SubResource( 72 )
+
+[node name="AttackCD" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="Despawn" to="." method="_on_Despawn_timeout"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_PlayerDetection_body_entered"]
+[connection signal="area_entered" from="AttackRadius" to="." method="_on_AttackRadius_area_entered"]
+[connection signal="timeout" from="AttackCD" to="." method="_on_AttackCD_timeout"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

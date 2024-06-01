@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/misc/Label.gd" type="Script" id=1]
+[ext_resource path="res://sprites/font/ka1.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="Label" type="Label"]
+margin_left = 17.0
+margin_top = 67.0
+margin_right = 317.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 1 )

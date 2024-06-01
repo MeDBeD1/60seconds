@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/arena/Arena.png" type="Texture" id=1]
+[ext_resource path="res://src/characters/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/characters/EnemySkeleton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/misc/Spawn.tscn" type="PackedScene" id=4]
+
+[node name="Action" type="Node2D"]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Arena" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="Arena" type="Sprite" parent="Arena"]
+position = Vector2( 496, 303 )
+scale = Vector2( 20.9658, 20.9658 )
+z_index = -1
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arena"]
+polygon = PoolVector2Array( 392, 1603, 748, 1582, 1047, 1522, 1324, 1418, 1506, 1295, 1739, 1104, 1932, 848, 2037, 627, 2113, 417, 2171, 169, 2172, -170, 2150, -187, 2135, -318, 2047, -607, 1917, -861, 1765, -1071, 1586, -1239, 1400, -1368, 1229, -1460, 1050, -1522, 881, -1573, 755, -1583, 732, -1605, 392, -1602, 389, -1584, 242, -1563, 97, -1519, -29, -1481, -178, -1414, -441, -1238, -572, -1132, -657, -1020, -783, -850, -812, -792, -871, -698, -932, -524, -1012, -172, -1033, -166, -1029, 156, -995, 254, -987, 353, -912, 589, -829, 783, -716, 949, -612, 1094, -432, 1247, -217, 1395, -41, 1478, 146, 1545, 349, 1585, 373, 1600, 390, 1604, 392, 2005, -1173, 1114, -1171, -651, -282, -1737, 1765, -1741, 2743, -495, 2647, 1139, 2120, 1587, 491, 1998, 392, 1655 )
+
+[node name="Spawners" type="Node2D" parent="."]
+visible = false
+position = Vector2( 570, 3 )
+
+[node name="Spawn" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 1544, -1 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn2" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -1494, -3 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn3" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 1436, 314 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn4" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 1306, 635 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn5" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 1074, 932 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn6" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 809, 1160 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn7" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 421, 1345 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn8" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 44, 1414 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn9" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -1469, 311 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn10" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -1283, 679 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn11" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -1022, 993 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn12" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -769, 1216 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn13" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -457, 1362 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn14" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 998, -967 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn15" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 1224, -744 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn16" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 1402, -363 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn17" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 774, -1163 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn18" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 440, -1374 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn19" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( 6, -1470 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn20" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -1393, -406 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn21" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -1224, -780 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn22" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -960, -1091 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn23" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -670, -1318 )
+skeleton = ExtResource( 3 )
+
+[node name="Spawn24" parent="Spawners" instance=ExtResource( 4 )]
+position = Vector2( -348, -1438 )
+skeleton = ExtResource( 3 )
